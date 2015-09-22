@@ -165,7 +165,7 @@ class generator_command extends Command {
         );
 
         // Save final config with install paths.
-        file_put_contents($testplanjson, json_encode($configjson));
+        file_put_contents($testplanjson, json_encode($configjson, JSON_PRETTY_PRINT));
 
     }
 

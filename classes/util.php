@@ -202,7 +202,7 @@ class util {
 
         $contents[$option] = $value;
 
-        $jsoncontents = json_encode($contents);
+        $jsoncontents = json_encode($contents, JSON_PRETTY_PRINT);
 
         if (!file_put_contents($optionfile, $jsoncontents)) {
             self::performance_exception('File testplanoptions.json can not be created for storing passed user options.');
@@ -375,7 +375,7 @@ class util {
         $config['scenarios'][\behat_hooks::$featurefile]['requests'][$capturelabel] = $request;
 
         // Update config so it can be used in final release.
-        file_put_contents($updatedtestplanconfigfile, json_encode($config));
+        file_put_contents($updatedtestplanconfigfile, json_encode($config, JSON_PRETTY_PRINT));
 
         // Remove har file as it's work is done.
         unlink(self::get_har_file_path($capturelabel));
